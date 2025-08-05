@@ -28,7 +28,7 @@ interface GameState {
   dispatchedSquads: { x: number; y: number; audioClip: number; success: boolean }[]
   unlockedClips: number[]
   timeElapsed: number
-  difficulty: "EASY" | 'MEDIUM | "HARD'
+  difficulty: "EASY" | "MEDIUM" | "HARD"
 }
 
 interface Landmark {
@@ -218,7 +218,7 @@ const AUDIO_TRAIL: AudioClip[] = [
   {
     id: 1,
     transcript:
-      "\"Oh my god, hello? Can you hear me? I need help. My name is Ana. I think I've been abducted. Someone put a cloth over my mouth and... I blacked out. I'm in a basement now, I think. I can't see anything. But I hear crickets... lots of 'em.\"",
+      "Hello? Can you hear me? I need help. My name is Ana. I was in a parking garage on the west side and someone put a cloth over my mouth and... I think I’m in his trunk. We’re parked somewhere.",
     correctLocation: { x: 17, y: 13 }, // At the rural motel location
     searchRadius: 4, // Larger radius since it's the first clue
     description: "Initial distress call from Ana",
@@ -227,7 +227,7 @@ const AUDIO_TRAIL: AudioClip[] = [
   {
     id: 2,
     transcript:
-      "\"Someone has a TV on upstairs. It's playing the local news. I can barely hear it… wait—it's an anchorman. He just said something about Route... 19? 9? Something like that.\"",
+      "Okay, I think we’re moving. I can kind of see outside. There’s a crossing guard. Kids... God, where are we?",
     correctLocation: { x: 17, y: 13 }, // Same location - she's still in the motel basement
     searchRadius: 3, // Narrowing down
     description: "Ana hears local news mentioning a highway",
@@ -235,7 +235,7 @@ const AUDIO_TRAIL: AudioClip[] = [
   },
   {
     id: 3,
-    transcript: '"Do you hear that? The bells? What is that?"',
+    transcript: "We’re turning. I think the guy’s on the phone. I heard ‘Market Street.’ Please write that down.",
     correctLocation: { x: 17, y: 13 }, // Same location - she can hear the nearby farm
     searchRadius: 2, // Getting more precise
     description: "Ana hears cow bells nearby",
@@ -244,7 +244,7 @@ const AUDIO_TRAIL: AudioClip[] = [
   {
     id: 4,
     transcript:
-      "\"Someone's arguing. A man. He's saying he booked a room. What does that mean? Please, I'm scared...\"",
+      "Did you hear that? There was music. Fuck, where are we? I’m going to die, aren’t I?",
     correctLocation: { x: 17, y: 13 }, // Same location - confirms she's in a motel
     searchRadius: 2, // Maintaining precision
     description: "Ana overhears argument about a booked room",
@@ -252,7 +252,7 @@ const AUDIO_TRAIL: AudioClip[] = [
   },
   {
     id: 5,
-    transcript: '"Oh God—he\'s coming downstairs. I think he heard me. Please hel-"',
+    transcript: "Something stinks. What is that... oil, maybe? Wait—someone’s coming— AHH!",
     correctLocation: { x: 17, y: 13 }, // Same location - train passes nearby
     searchRadius: 1, // Final precise location
     description: "Final transmission cut short by train",
